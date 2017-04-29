@@ -5,7 +5,7 @@ RUN pacman --noconfirm -Sy archlinux-keyring
 RUN pacman --noconfirm -Syu
 RUN pacman-db-upgrade
 RUN pacman --noconfirm -S vim
-RUN pacman --noconfirm -S gcc make cmake python2
+RUN pacman --noconfirm -S gcc make cmake python2 diffutils grep sed
 
 RUN mkdir /root/dinamite/
 
@@ -56,7 +56,7 @@ RUN pacman --noconfirm -S ca-certificates ca-certificates-mozilla
 
 
 RUN cd /root/dinamite/llvm-3.5.0.src/projects/ ;\
-       git clone https://github.com/dinamite-toolkit/dinamite 
+        git clone https://github.com/dinamite-toolkit/dinamite
 
 RUN cd /root/dinamite/llvm-3.5.0.src/projects/dinamite/library ;\
         PATH=$PATH:/root/dinamite/build/bin/ make binary;\
